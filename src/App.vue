@@ -4,12 +4,14 @@
     <body>
       <router-view />
     </body>
+    <FooterLayout />
   </div>
 </template>
 
 <script>
 import HeaderLayout from "@/components/header/HeaderLayout.vue";
-export default { components: { HeaderLayout } };
+import FooterLayout from "@/components/footer/FooterLayout.vue";
+export default { components: { HeaderLayout, FooterLayout } };
 </script>
 
 <style>

@@ -3,14 +3,16 @@
     <h1>НАШИ КУРСЫ</h1>
     <div class="courses">
       <div class="free_course">
+        <img src="@/assets/free_course.png" alt="" />
         <div class="courses_text">
           <p class="courses_title">Бесплатный курс</p>
           <p class="courses_description">База для новичков</p>
         </div>
       </div>
       <div class="vip_course">
+        <img src="@/assets/vip_course.png" alt="" />
         <div class="courses_text">
-          <p class="courses_title">VIP-Курс</p>
+          <p class="courses_title">VIP-курс</p>
           <p class="courses_description">Продвинутый</p>
         </div>
         <div class="course_not_available">
@@ -32,7 +34,6 @@ h1 {
 }
 
 .courses {
-  padding: 0 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -40,7 +41,8 @@ h1 {
   justify-content: center;
   gap: 30px;
 
-  height: 300px;
+  height: auto;
+  padding: 20px;
 }
 
 .free_course,
@@ -53,11 +55,15 @@ h1 {
   height: 100%;
 }
 
-.free_course {
-  background-image: url("@/assets/free_course.png");
+.free_course img,
+.vip_course img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  z-index: 1;
 }
 .vip_course {
-  background-image: url("@/assets/vip_course.png");
+  z-index: 1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -65,6 +71,7 @@ h1 {
 }
 
 .courses_text {
+  z-index: 1;
   position: absolute;
   left: 20px;
   top: 20px;
@@ -87,6 +94,10 @@ h1 {
 }
 
 .course_not_available {
+  position: absolute;
+  bottom: 0;
+  left: calc(50%-30px);
+  z-index: 1;
   background-color: rgba(255, 240, 106, 0.75);
   width: 70%;
   height: 60px;
@@ -102,5 +113,10 @@ h1 {
   width: 100%;
   text-align: center;
   vertical-align: middle;
+}
+@media (max-width: 652px) {
+  .courses {
+    flex-direction: column;
+  }
 }
 </style>

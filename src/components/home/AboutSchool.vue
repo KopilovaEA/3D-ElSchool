@@ -17,7 +17,9 @@
       </div>
     </div>
     <div class="about_school_right_side">
-      <div class="about_school_image"></div>
+      <div class="about_school_image">
+        <img src="@/assets/light.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +33,7 @@ export default {};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 200px;
+  gap: 20px;
   padding: 0 20px;
   margin: 60px 0;
 }
@@ -41,13 +43,11 @@ export default {};
   margin-top: 0;
 }
 
-.about_school_image {
-  background-image: url("@/assets/light.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 500px;
-  height: 500px;
+.about_school_image img {
+  object-fit: cover;
+  width: auto;
+  height: 400px;
+  z-index: 1;
 }
 
 .about_school_text {
@@ -57,5 +57,12 @@ export default {};
   flex-direction: column;
   gap: 20px;
   line-height: 1.5;
+}
+
+@media (max-width: 1260px) {
+  .about_school {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

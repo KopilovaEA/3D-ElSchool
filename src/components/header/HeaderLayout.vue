@@ -7,7 +7,7 @@
           <span class="header_title">3D ElSchool</span>
         </div>
       </router-link>
-      <div class="header_menu">
+      <div class="header_menu" v-show="windowWidth > 630">
         <router-link to="/courses">
           <span>Курсы</span>
         </router-link>
@@ -22,18 +22,36 @@
         </router-link>
       </div>
     </div>
-    <router-link to="/login">
+    <router-link to="/login" v-if="windowWidth > 630">
       <span style="font-size: 18px">Войти</span>
     </router-link>
+    <BurgerMenu v-else />
   </header>
 </template>
 
 <script>
-export default {};
+import BurgerMenu from "./BurgerMenu.vue";
+export default {
+  components: {
+    BurgerMenu,
+  },
+  data: () => ({
+    windowWidth: null,
+  }),
+  mounted() {
+    this.windowWidth = window.innerWidth;
+    window.addEventListener("resize", (event) => {
+      this.windowWidth = event.currentTarget.innerWidth;
+    });
+  },
+};
 </script>
 
 <style scoped>
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   background-color: #191a1c;
   width: calc(100% - 40px);
   height: 50px;
@@ -42,7 +60,6 @@ export default {};
 
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   gap: 15px;
   justify-content: space-between;
@@ -69,6 +86,7 @@ export default {};
 .header_title {
   font-size: 28px;
   vertical-align: baseline;
+  white-space: nowrap;
 }
 
 .header_menu {
