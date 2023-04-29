@@ -8,9 +8,7 @@
           <span class="style_gmail">elSc@gmail.com</span>. Мы свяжемся с тобой,
           чтобы ответить на него!
         </p>
-        <a
-          href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTLpRBDnrqpBzcZFlJFnpgGbSjhBWSSCZHzGpSNnwFCFgMDzTQRxtsZjqXdtBQHTrfNWqq"
-          target="_blank"
+        <a href="mailto:elSc@gmail.com" target="_blank"
           ><button class="button_message">Написать</button></a
         >
       </div>

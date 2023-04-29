@@ -1,9 +1,9 @@
 <template>
   <div>
     <HeaderLayout />
-    <body>
+    <main>
       <router-view />
-    </body>
+    </main>
     <FooterLayout />
   </div>
 </template>
@@ -28,6 +28,10 @@ html {
 }
 
 body {
+  margin: 0;
+}
+
+main {
   margin: 0;
 }
 

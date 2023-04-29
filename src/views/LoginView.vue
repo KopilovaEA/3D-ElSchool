@@ -2,7 +2,7 @@
   <div class="login" img="@/assets/f.jpg">
     <!-- <img class="login-background-image" src="@/assets/f.jpg" alt="" /> -->
     <div class="login-form">
-      <input placeholder="почта" type="text" v-model="login" />
+      <input placeholder="Почта" type="text" v-model="login" />
       <input placeholder="Пароль" type="password" v-model="password" />
       <h3 class="form-error" v-if="error">{{ error }}</h3>
       <div class="login-form-btns">
@@ -20,6 +20,9 @@
 <style scoped>
 .login {
   padding: 40px;
+  max-width: 400px;
+  margin: auto;
+  height: calc(100vh - 50px - 80px);
 }
 .login-form {
   z-index: 2;
@@ -43,7 +46,6 @@ input,
   font-size: calc(var(--index) * 1.5);
   background: none;
   border: 1px solid #636161;
-  color: var(--vt-c-white-soft);
   padding: 4px 8px;
   text-align: center;
   transition: all 0.3s ease;
@@ -65,10 +67,16 @@ input:focus::placeholder {
   width: 40%;
   align-self: center;
   cursor: pointer;
+  border-color: #818181;
+  color: black;
 }
 .login-btn:hover {
-  background: #3ca444d0;
-  transition: all 0.3s ease;
+  background: linear-gradient(
+    120deg,
+    rgb(161, 88, 174),
+    rgb(208, 130, 222),
+    rgba(208, 130, 222, 0.807)
+  );
 }
 
 .registration-btn {
@@ -77,6 +85,10 @@ input:focus::placeholder {
   align-self: center;
   color: var(--vt-c-white-mute);
   cursor: pointer;
+}
+.registration-btn:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .form-error {
   color: rgba(255, 0, 0, 0.707);
@@ -90,5 +102,15 @@ input:focus::placeholder {
   width: 100%;
   height: 100%;
   user-select: none;
+}
+@media screen and (min-width: 1200px) {
+  .login {
+    font-size: 28px;
+    max-width: 700px;
+  }
+
+  .login-btn {
+    width: 300px;
+  }
 }
 </style>

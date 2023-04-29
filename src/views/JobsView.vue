@@ -124,7 +124,7 @@ h1 {
     font-size: 28px;
     margin-left: 80px;
     margin-right: 80px;
-    border-radius: 90px;
+    border-radius: 40px;
     text-align: center;
     margin-top: 20px;
     transition: all 0.3s ease;

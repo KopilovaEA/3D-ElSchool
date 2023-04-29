@@ -12,7 +12,35 @@
         />
       </svg>
     </div>
-    <div class="burger_menu__background" v-show="isOpenMenu"></div>
+    <Transition name="slide">
+      <div class="burger_menu__background" v-show="isOpenMenu">
+        <div class="menu">
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/courses">
+            <span>Курсы</span>
+          </router-link>
+        </div>
+        <div class="menu">
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/format">
+            <span>Формат</span>
+          </router-link>
+        </div>
+        <div class="menu">
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/blog">
+            <span>Блог</span>
+          </router-link>
+        </div>
+        <div class="menu">
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/jobs">
+            <span>Вакансии</span>
+          </router-link>
+        </div>
+        <div class="menu">
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/login">
+            <span>Войти</span>
+          </router-link>
+        </div>
+      </div>
+    </Transition>
     <div
       class="burger_menu__dark_overflow"
       @click="toggleMenu()"
@@ -29,7 +57,6 @@ export default {
   methods: {
     toggleMenu() {
       this.isOpenMenu = !this.isOpenMenu;
-      console.log(this.isOpenMenu);
     },
   },
 };
@@ -59,6 +86,7 @@ export default {
   width: 300px;
   height: 100vh;
   z-index: 1;
+  padding-top: 40px;
 }
 
 .burger_menu__dark_overflow {
@@ -69,5 +97,20 @@ export default {
   z-index: 0.5;
   width: 100%;
   min-height: 100vh;
+}
+.menu {
+  padding-top: 20px;
+  font-size: 24px;
+}
+
+/* Анимация открытия меню */
+.slide-enter-active,
+.slide-leave-active {
+  transition: right 0.3s ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  right: -300px;
 }
 </style>
