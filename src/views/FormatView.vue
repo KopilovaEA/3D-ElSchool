@@ -39,7 +39,7 @@
     <div>
       <p class="theory_text">Смотрите видеолекции, вебинары и мастер-классы</p>
       <div class="theor_image">
-        <img src="@/assets/theor.png" width="100%" height="400px" />
+        <img src="@/assets/theor.png" width="100%" height="500px" />
       </div>
     </div>
     <div class="icon_two">
@@ -88,7 +88,7 @@
     <p>Практика</p>
     <p class="theory_text">Выполняете задания и общаитесь с экспертами</p>
     <div class="theor_image">
-      <img src="@/assets/practice.png" width="100%" height="400px" />
+      <img src="@/assets/practice.png" width="100%" height="500px" />
     </div>
     <div class="icon_two">
       <img
@@ -121,7 +121,7 @@
     <p>Сопровождение</p>
     <p class="theory_text">Эксперт детально отвечает на вопросы</p>
     <div class="theor_image">
-      <img src="@/assets/es.png" width="100%" height="400px" />
+      <img src="@/assets/es.png" width="100%" height="500px" />
     </div>
     <div class="icon_two">
       <img
@@ -168,7 +168,7 @@
     <p>Работа в группе</p>
     <p class="theory_text">Разбираете задания вместе с другими студентами</p>
     <div class="theor_image">
-      <img src="@/assets/work_stud.png" width="100%" height="400px" />
+      <img src="@/assets/work_stud.png" width="100%" height="500px" />
     </div>
   </div>
 </template>

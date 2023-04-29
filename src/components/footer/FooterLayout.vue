@@ -3,10 +3,11 @@
     <div class="footer_top">
       <div class="footer_top-contacts">
         <div>+7 (924) 556-78-79</div>
-        <div>elSc@mail.ru</div>
+        <div>elSc@gmail.com</div>
         <div class="footer_top-contacts_icons">
           <a href="https://vk.com" target="_blank">
             <svg
+              class="icon_f"
               width="60"
               height="72"
               viewBox="0 0 80 92"
@@ -20,6 +21,7 @@
             </svg>
           </a>
           <svg
+            class="icon_f"
             width="60"
             height="63"
             viewBox="0 0 80 83"
@@ -31,29 +33,40 @@
               fill="white"
             />
           </svg>
-          <svg
-            width="66"
-            height="75"
-            viewBox="0 0 86 110"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M82.0666 26.6585C81.1288 21.5774 78.3657 17.5757 74.8575 16.2177C68.4986 13.75 43 13.75 43 13.75C43 13.75 17.5016 13.75 11.1425 16.2177C7.6343 17.5759 4.87125 21.5774 3.93346 26.6585C2.22958 35.8682 2.22958 55.0834 2.22958 55.0834C2.22958 55.0834 2.22958 74.2986 3.93346 83.5083C4.87125 88.5893 7.6343 92.4243 11.1425 93.7823C17.5016 96.25 43 96.25 43 96.25C43 96.25 68.4984 96.25 74.8575 93.7823C78.3657 92.4243 81.1288 88.5893 82.0666 83.5083C83.7704 74.2986 83.7704 55.0834 83.7704 55.0834C83.7704 55.0834 83.7704 35.8682 82.0666 26.6585ZM34.6605 72.5293V37.6374L55.9723 55.0838L34.6605 72.5293Z"
-              fill="white"
-            />
-          </svg>
+          <a href="https://www.youtube.com/watch?v=ryq4Vj7G5NA" target="_blank">
+            <svg
+              class="icon_f"
+              width="66"
+              height="75"
+              viewBox="0 0 86 110"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M82.0666 26.6585C81.1288 21.5774 78.3657 17.5757 74.8575 16.2177C68.4986 13.75 43 13.75 43 13.75C43 13.75 17.5016 13.75 11.1425 16.2177C7.6343 17.5759 4.87125 21.5774 3.93346 26.6585C2.22958 35.8682 2.22958 55.0834 2.22958 55.0834C2.22958 55.0834 2.22958 74.2986 3.93346 83.5083C4.87125 88.5893 7.6343 92.4243 11.1425 93.7823C17.5016 96.25 43 96.25 43 96.25C43 96.25 68.4984 96.25 74.8575 93.7823C78.3657 92.4243 81.1288 88.5893 82.0666 83.5083C83.7704 74.2986 83.7704 55.0834 83.7704 55.0834C83.7704 55.0834 83.7704 35.8682 82.0666 26.6585ZM34.6605 72.5293V37.6374L55.9723 55.0838L34.6605 72.5293Z"
+                fill="white"
+              />
+            </svg>
+          </a>
         </div>
       </div>
       <div class="footer_top-3delschool">
         <div style="border-bottom: 1px solid white">3D ElSchool</div>
-        <div>Курсы</div>
-        <div>Формат</div>
-        <div>Блог</div>
+        <router-link to="/courses">
+          <div class="style_footer">Курсы</div>
+        </router-link>
+        <router-link to="/format">
+          <div class="style_footer">Формат</div>
+        </router-link>
+        <router-link to="/blog">
+          <div class="style_footer">Блог</div>
+        </router-link>
       </div>
       <div class="footer_top-cooperation">
         <div style="border-bottom: 1px solid white">Сотрудничество</div>
-        <div>Вакансии</div>
+        <router-link to="/jobs">
+          <div class="style_footer">Вакансии</div>
+        </router-link>
       </div>
     </div>
     <div class="footer_middle_line"></div>
@@ -89,7 +102,9 @@ export default {};
   flex-direction: column;
   gap: 20px;
 }
-
+.style_footer:hover {
+  color: #a554ca;
+}
 .footer_top {
   font-size: 26px;
   display: flex;
@@ -108,7 +123,11 @@ export default {};
   flex-direction: column;
   gap: 10px;
 }
-
+.icon_f:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+  text-align: center;
+}
 .footer_top-contacts_icons {
   display: flex;
   flex-direction: row;

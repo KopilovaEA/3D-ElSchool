@@ -30,12 +30,19 @@
       height="82"
     />
     <p>
-      Рекомендуем к прочтению статью:
-      <a href="https://gb.ru/blog/3d-modelirovanie/" class="global"
-        >3D-моделирование: виды, принципы, инструменты</a
+      Рекомендуем подписаться на наш Telegram канал, чтобы быть всегда вкурсе
+      наших новостей:
+      <a href="https://web.telegram.org/k/" class="global" target="_blank"
+        >3D ElSchool</a
       >
     </p>
-    <img class="image" src="@/assets/image5.png" alt="image" />
+    <img
+      class="image"
+      src="@/assets/image.png"
+      alt="image"
+      width="100%"
+      height="500px"
+    />
     <img
       class="circle"
       src="@/assets/Ellipse.png"
@@ -48,10 +55,17 @@
       <a
         href="https://skillbox.ru/media/gamedev/chto_takoe_tekstury_i_kak_oni_rabotayut_v_3d_grafike/"
         class="global"
+        target="_blank"
         >Что такое текстуры и как они работают в 3D-графике</a
       >
     </p>
-    <img class="image" src="@/assets/image2.png" alt="image" />
+    <img
+      class="image"
+      src="@/assets/image2.png"
+      alt="image"
+      width="100%"
+      height="500px"
+    />
     <img
       class="circle"
       src="@/assets/Ellipse.png"
@@ -64,10 +78,17 @@
       <a
         href="https://www.behance.net/search/projects?field=3d+art"
         class="global"
+        target="_blank"
         >3D арты</a
       >
     </p>
-    <img class="images" src="@/assets/3D.png" alt="image" />
+    <img
+      class="image"
+      src="@/assets/3D.png"
+      alt="image"
+      width="100%"
+      height="500px"
+    />
   </div>
 </template>
 
@@ -102,13 +123,9 @@ a:hover {
   text-decoration: underline;
 }
 .image {
-  width: 100%;
-  margin-top: 20px;
+  object-fit: cover;
 }
-.images {
-  width: 100%;
-  margin-bottom: 30px;
-}
+
 .circle {
   display: flex;
   top: 0;
@@ -120,5 +137,6 @@ a:hover {
   width: 100%;
   height: 650px;
   top: 20px;
+  object-fit: cover;
 }
 </style>

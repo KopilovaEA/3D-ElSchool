@@ -37,12 +37,17 @@
         <div>Узнаете о лайфхаках</div>
         <div>Системно находить клиентов и эффективно продавать свои услуги</div>
       </div>
-      <div class="prepod_image">
-        <img src="@/assets/Prepod.png" width="250px" height="150px" />
-        <p class="textik">
+      <div class="prepod">
+        <img
+          class="prepod_image"
+          src="@/assets/Prepod.png"
+          width="auto"
+          height="150px"
+        />
+        <div class="textik">
           В обучении вам помогут эксперты. Чтобы вам было легче погрузиться в
           обучение, вы сможете задавать вопросы экспертам и связываться с ними.
-        </p>
+        </div>
       </div>
     </div>
   </div>
@@ -87,6 +92,7 @@ export default {};
 .free_text {
   display: flex;
   flex-direction: column;
+  text-align: left;
   gap: 10px;
   padding: 20px;
   font-size: 34px;
@@ -116,7 +122,7 @@ export default {};
   width: 300px;
   padding: 10px;
 }
-.prepod_image {
+.prepod {
   margin-top: 20px;
   font-size: 36px;
   margin-bottom: 20px;
@@ -124,8 +130,14 @@ export default {};
   position: relative;
   display: flex;
 }
+.prepod_image {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  display: flex;
+}
 .textik {
-  margin-top: 15px;
+  margin-top: 75px;
   font-size: 19px;
   color: #7b4393;
   font-weight: bold;
@@ -138,6 +150,20 @@ export default {};
   background-color: #404040;
   align-self: center;
 }
-@media (max-width: 632px) {
+@media (max-width: 500px) {
+  .prepod {
+    flex-direction: column;
+    gap: -10px;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-left: 30px;
+  }
+  .free_text {
+    text-align: center;
+  }
+  .vip_text {
+    text-align: center;
+  }
 }
 </style>

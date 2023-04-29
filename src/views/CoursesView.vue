@@ -83,9 +83,9 @@ h1 {
   position: absolute;
   top: 20px;
   right: 50px;
-  background-size: 240px;
-  height: 345px;
-  width: 239px;
+  background-size: 128px;
+  height: 190px;
+  width: 125px;
 }
 
 .free_courses_text {
@@ -163,7 +163,7 @@ p {
 
 .course_available_texts {
   color: #000000;
-  font-size: 30px;
+  font-size: 20px;
   width: 100%;
   text-align: center;
   vertical-align: middle;
