@@ -1,4 +1,18 @@
-# 3dcourses
+# 3D ElSchool Courses
+
+## Git
+```
+git add .
+// если CRLF npm run lint
+git commit -m "текст"
+git push
+```
+
+### Дополнительно:
+```
+git status
+git log
+```
 
 ## Project setup
 ```
