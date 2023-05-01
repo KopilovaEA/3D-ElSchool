@@ -16,6 +16,7 @@
         <img src="@/assets/Ellipse4.png" alt="" />
       </div>
     </div>
+    <h1>РАБОТЫ СТУДЕНТОВ</h1>
     <StudentsCarousel />
     <QuestionBanner />
   </div>
@@ -43,6 +44,11 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  margin-top: 60px;
+  text-align: left;
+  padding-left: 20px;
+}
 .teatcher {
   background-color: #bb8dcd;
   width: auto;

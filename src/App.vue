@@ -11,7 +11,21 @@
 <script>
 import HeaderLayout from "@/components/header/HeaderLayout.vue";
 import FooterLayout from "@/components/footer/FooterLayout.vue";
-export default { components: { HeaderLayout, FooterLayout } };
+import axios from "axios";
+export default {
+  components: { HeaderLayout, FooterLayout },
+  async mounted() {
+    const response = await axios.post("http://localhost:3000/user", {
+      id: window.localStorage.getItem("auth"),
+    });
+
+    if (!response.data?.message) {
+      this.$store.commit("setId", response.data.id);
+      this.$store.commit("setName", response.data.name);
+      this.$store.commit("setEmail", response.data.email);
+    }
+  },
+};
 </script>
 
 <style>

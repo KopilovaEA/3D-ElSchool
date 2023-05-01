@@ -1,21 +1,108 @@
 <template>
   <div class="login" img="@/assets/f.jpg">
-    <!-- <img class="login-background-image" src="@/assets/f.jpg" alt="" /> -->
     <div class="login-form">
-      <input placeholder="Почта" type="text" v-model="login" />
-      <input placeholder="Пароль" type="password" v-model="password" />
+      <input
+        :class="{ login_error: isLoginError }"
+        placeholder="Почта"
+        type="text"
+        v-model.trim="login"
+      />
+      <input
+        :class="{ password_error: isPasswordError }"
+        placeholder="Пароль"
+        type="password"
+        v-model.trim="password"
+      />
       <h3 class="form-error" v-if="error">{{ error }}</h3>
       <div class="login-form-btns">
-        <button class="login-btn" @click="loginValidate()">Войти</button>
+        <button class="login-btn" @click="goToLogin()">Войти</button>
         <div class="registration-btn" @click="goToRegistration()">
-          Регистрация
+          <router-link to="/register">
+            <span class="registration-btn"
+              >Ещё нет профиля? Зарегистрируйтесь</span
+            >
+          </router-link>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from "axios";
+export default {
+  data: () => ({
+    login: "",
+    password: "",
+    isLoginError: false,
+    isPasswordError: false,
+    error: "",
+  }),
+  methods: {
+    loginValidate() {
+      const regex = /^\w+@\w+\.\w+$/;
+
+      if (!this.login && !this.password) {
+        this.isLoginError = true;
+        this.isPasswordError = true;
+        this.error = "Пожалуйста, введите почту и пароль";
+        throw new Error("Пожалуйста, введите почту и пароль");
+      } else if (!this.login) {
+        this.isLoginError = true;
+        this.error = "Пожалуйста, введите почту";
+        throw new Error("Пожалуйста, введите почту");
+      } else if (!this.password) {
+        this.isLoginError = true;
+        this.error = "Пожалуйста, введите пароль";
+        throw new Error("Пожалуйста, введите пароль");
+      } else if (!regex.test(this.login)) {
+        this.isLoginError = true;
+        this.error = "Почта введена некорректно";
+        throw new Error("Почта введена некорректно");
+      } else if (this.password.length < 6) {
+        this.isPasswordError = true;
+        this.error = "Пароль не может быть меньше 6-ти символов";
+        throw new Error("Пароль не может быть меньше 6-ти символов");
+      }
+    },
+    async goToLogin() {
+      this.isLoginError = false;
+      this.isPasswordError = false;
+      this.error = "";
+
+      try {
+        this.loginValidate();
+      } catch (e) {
+        throw new Error("Проверка не пройдена");
+      }
+
+      try {
+        const response = await axios.post("http://localhost:3000/login", {
+          email: this.login,
+          password: this.password,
+        });
+
+        console.log(response.data);
+
+        if (response.data?.message === "Ошибка") {
+          this.isLoginError = true;
+          this.isPasswordError = true;
+          this.error = "Пользователя с такими данными не найдено";
+        } else {
+          this.$store.commit("setId", response.data.id);
+          this.$store.commit("setName", response.data.name);
+          this.$store.commit("setEmail", response.data.email);
+          window.localStorage.setItem("auth", response.data.id);
+          this.$router.push("/");
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    goToRegistration() {},
+  },
+};
+</script>
 
 <style scoped>
 .login {
@@ -84,6 +171,7 @@ input:focus::placeholder {
   width: calc(var(--index) * 5.8);
   align-self: center;
   color: var(--vt-c-white-mute);
+  color: #636161;
   cursor: pointer;
 }
 .registration-btn:hover {
@@ -93,17 +181,16 @@ input:focus::placeholder {
 .form-error {
   color: rgba(255, 0, 0, 0.707);
   text-align: center;
+  margin: 0;
 }
 
-.login-background-image {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  user-select: none;
+.login_error,
+.password_error {
+  border-color: rgba(255, 0, 0, 0.707);
+  border-width: 2px;
 }
-@media screen and (min-width: 1200px) {
+
+@media screen and (min-width: 1050px) {
   .login {
     font-size: 28px;
     max-width: 700px;
@@ -111,6 +198,10 @@ input:focus::placeholder {
 
   .login-btn {
     width: 300px;
+  }
+  .registration-btn {
+    font-size: 22px;
+    padding: 10px;
   }
 }
 </style>

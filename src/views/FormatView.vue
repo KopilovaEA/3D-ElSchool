@@ -1,7 +1,7 @@
 <template>
   <div class="format">
     <TopBanner />
-    <h1>ФОРМАТ КУРСОВ</h1>
+    <h1>ФОРМАТ КУРСА</h1>
     <div class="icons">
       <div class="icon">
         <img
@@ -119,7 +119,7 @@
       </svg>
     </div>
     <p>Сопровождение</p>
-    <p class="theory_text">Эксперт детально отвечает на вопросы</p>
+    <p class="theory_text">Эксперты отвечают на вопросы</p>
     <div class="theor_image">
       <img src="@/assets/es.png" width="100%" height="500px" />
     </div>
@@ -166,7 +166,9 @@
       </svg>
     </div>
     <p>Работа в группе</p>
-    <p class="theory_text">Разбираете задания вместе с другими студентами</p>
+    <p class="theory_text">
+      По желанию объединяетесь с другими студентами и разбираете задания
+    </p>
     <div class="theor_image">
       <img src="@/assets/work_stud.png" width="100%" height="500px" />
     </div>

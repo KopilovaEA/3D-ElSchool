@@ -1,7 +1,7 @@
 <template>
   <div class="questions">
     <div class="about_school_left_side">
-      <h1 class="question_title">ПОЯВИЛИСЬ ВОПРОСЫ О ШКОЛЕ?</h1>
+      <h1 class="question_title">ПОЯВИЛИСЬ ВОПРОСЫ?</h1>
       <div class="question_text">
         <p>
           Отправь вопрос нам на почту

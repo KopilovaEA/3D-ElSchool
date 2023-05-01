@@ -9,7 +9,7 @@
       </router-link>
       <div class="header_menu" v-show="windowWidth > 630">
         <router-link to="/courses">
-          <span>Курсы</span>
+          <span>Курс</span>
         </router-link>
         <router-link to="/format">
           <span>Формат</span>
@@ -22,9 +22,14 @@
         </router-link>
       </div>
     </div>
-    <router-link to="/login" v-if="windowWidth > 630">
-      <span style="font-size: 18px">Войти</span>
-    </router-link>
+    <div v-if="windowWidth > 630">
+      <router-link to="/login" v-if="!$store.state.id">
+        <span style="font-size: 18px">Войти</span>
+      </router-link>
+      <router-link to="/courses" v-else>
+        <span style="font-size: 18px">{{ $store.state.name }}</span>
+      </router-link>
+    </div>
     <BurgerMenu v-else />
   </header>
 </template>

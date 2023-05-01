@@ -16,7 +16,7 @@
       <div class="burger_menu__background" v-show="isOpenMenu">
         <div class="menu">
           <router-link @click="isOpenMenu = !isOpenMenu" to="/courses">
-            <span>Курсы</span>
+            <span>Курс</span>
           </router-link>
         </div>
         <div class="menu">
@@ -35,8 +35,15 @@
           </router-link>
         </div>
         <div class="menu">
-          <router-link @click="isOpenMenu = !isOpenMenu" to="/login">
+          <router-link
+            @click="isOpenMenu = !isOpenMenu"
+            to="/login"
+            v-if="!$store.state.id"
+          >
             <span>Войти</span>
+          </router-link>
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/courses" v-else>
+            <span>{{ $store.state.name }}</span>
           </router-link>
         </div>
       </div>
