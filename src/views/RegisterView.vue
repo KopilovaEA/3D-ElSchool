@@ -31,7 +31,7 @@
           Зарегистрироваться
         </button>
         <div class="registration-btn" @click="goToLogin()">
-          Уже есть аккаунт? Войти
+          Уже есть аккаунт? Войдите
         </div>
       </div>
     </div>

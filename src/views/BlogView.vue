@@ -10,11 +10,13 @@
         width="82"
         height="82"
       />
-      <p>Рекомендуем посмотреть видео: 3D как и с чего начать? ( YuriyFyr )</p>
+      <p>
+        Рекомендуем посмотреть видео: Что такое 3D моделирование? ( Zhukov3D )
+      </p>
       <div>
         <iframe
           class="video"
-          src="https://www.youtube.com/embed/Z7A4dstkrH8"
+          src="https://www.youtube.com/embed/-m8zejlAzb4"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -30,8 +32,8 @@
       height="82"
     />
     <p>
-      Рекомендуем подписаться на наш Telegram канал, чтобы быть всегда вкурсе
-      наших новостей и поддерживать общение:
+      Рекомендуем подписаться на наш Telegram канал, чтобы быть вкурсе наших
+      новостей и поддерживать общение:
       <a href="https://web.telegram.org/k/" class="global" target="_blank"
         >3D ElSchool</a
       >
@@ -135,8 +137,17 @@ a:hover {
 .video {
   display: flex;
   width: 100%;
-  height: 650px;
+  height: 800px;
   top: 20px;
   object-fit: cover;
+}
+@media (max-width: 500px) {
+  .video {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    top: 20px;
+    object-fit: cover;
+  }
 }
 </style>

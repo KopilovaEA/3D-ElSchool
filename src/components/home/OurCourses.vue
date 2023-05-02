@@ -6,14 +6,18 @@
         <img src="@/assets/free_course.png" alt="" />
         <div class="courses_text">
           <p class="courses_title">Бесплатный курс</p>
-          <p class="courses_description">База для новичков</p>
+          <router-link to="/courses"
+            ><p class="courses_description">База для новичков</p></router-link
+          >
         </div>
       </div>
       <div class="vip_course">
         <img src="@/assets/vip_course.png" alt="" />
         <div class="courses_text">
           <p class="courses_title">VIP-курс</p>
-          <p class="courses_description">Продвинутый</p>
+          <router-link to="/courses"
+            ><p class="courses_description">Продвинутый</p></router-link
+          >
         </div>
         <div class="course_not_available">
           <p class="course_not_available_text">Временно недоступен</p>
@@ -62,6 +66,14 @@ h1 {
   height: 300px;
   z-index: 1;
 }
+.free_course > img:hover {
+  outline: 4px dashed #de6690ac; /* Ширина, вид и цвет рамки */
+  outline-offset: -10px; /* Ширина, вид и цвет рамки */
+}
+.vip_course > img:hover {
+  outline: 4px dashed #d771ffc5; /* Ширина, вид и цвет рамки */
+  outline-offset: -10px; /* Ширина, вид и цвет рамки */
+}
 .vip_course {
   z-index: 1;
   display: flex;
@@ -69,7 +81,6 @@ h1 {
   align-items: flex-end;
   justify-content: center;
 }
-
 .courses_text {
   z-index: 1;
   position: absolute;
@@ -82,6 +93,7 @@ h1 {
 .courses_title,
 .courses_description {
   text-align: left;
+  color: black;
 }
 
 .courses_title {
