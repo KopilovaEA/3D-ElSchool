@@ -1,7 +1,7 @@
 <template>
   <div class="format">
     <TopBanner />
-    <h1>ФОРМАТ КУРСА</h1>
+    <h1>ФОРМАТ КУРСОВ</h1>
     <div class="icons">
       <div class="icon">
         <img

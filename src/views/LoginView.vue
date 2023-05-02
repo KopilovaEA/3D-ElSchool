@@ -1,5 +1,5 @@
 <template>
-  <div class="login" img="@/assets/f.jpg">
+  <div class="login">
     <div class="login-form">
       <input
         :class="{ login_error: isLoginError }"
@@ -17,11 +17,7 @@
       <div class="login-form-btns">
         <button class="login-btn" @click="goToLogin()">Войти</button>
         <div class="registration-btn" @click="goToRegistration()">
-          <router-link to="/register">
-            <span class="registration-btn"
-              >Ещё нет профиля? Зарегистрируйтесь</span
-            >
-          </router-link>
+          Ещё нет профиля? Зарегистрируйтесь
         </div>
       </div>
     </div>
@@ -99,7 +95,9 @@ export default {
         console.log(e);
       }
     },
-    goToRegistration() {},
+    goToRegistration() {
+      this.$router.push("registration");
+    },
   },
 };
 </script>
@@ -171,7 +169,6 @@ input:focus::placeholder {
   width: calc(var(--index) * 5.8);
   align-self: center;
   color: var(--vt-c-white-mute);
-  color: #636161;
   cursor: pointer;
 }
 .registration-btn:hover {

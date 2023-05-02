@@ -4,8 +4,8 @@
   <div class="jobs">
     <div class="jobs_text">
       <div class="text_jobs_one">
-        После прохождения курса 3D моделирования в Blender и выполнения итоговых
-        заданий, все получат дипломы.
+        После прохождения наших курсов и выполнения итоговых заданий, все
+        получат дипломы.
       </div>
       <div class="text_jobs_two">
         Лучшие ученики смогут получить работу в нашей команде 3D моделлеров!
@@ -99,7 +99,7 @@ h1 {
     background-color: #2b0942;
     padding: 5px;
     width: auto;
-    height: 350px;
+    height: 280px;
     margin-top: 40px;
   }
   .text_jobs_one {

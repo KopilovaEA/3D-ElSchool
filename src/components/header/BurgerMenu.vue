@@ -16,7 +16,7 @@
       <div class="burger_menu__background" v-show="isOpenMenu">
         <div class="menu">
           <router-link @click="isOpenMenu = !isOpenMenu" to="/courses">
-            <span>Курс</span>
+            <span>Курсы</span>
           </router-link>
         </div>
         <div class="menu">

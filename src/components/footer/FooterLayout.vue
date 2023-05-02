@@ -53,7 +53,7 @@
       <div class="footer_top-3delschool">
         <div style="border-bottom: 1px solid white">3D ElSchool</div>
         <router-link to="/courses">
-          <div class="style_footer">Курс</div>
+          <div class="style_footer">Курсы</div>
         </router-link>
         <router-link to="/format">
           <div class="style_footer">Формат</div>

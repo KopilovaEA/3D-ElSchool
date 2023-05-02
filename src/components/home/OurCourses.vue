@@ -1,19 +1,19 @@
 <template>
   <div>
-    <h1>НАШ КУРС</h1>
+    <h1>НАШИ КУРСЫ</h1>
     <div class="courses">
       <div class="free_course">
         <img src="@/assets/free_course.png" alt="" />
         <div class="courses_text">
           <p class="courses_title">Бесплатный курс</p>
-          <p class="courses_description">База для новичков в Blender</p>
+          <p class="courses_description">База для новичков</p>
         </div>
       </div>
       <div class="vip_course">
         <img src="@/assets/vip_course.png" alt="" />
         <div class="courses_text">
           <p class="courses_title">VIP-курс</p>
-          <p class="courses_description">Продвинутый в Blender</p>
+          <p class="courses_description">Продвинутый</p>
         </div>
         <div class="course_not_available">
           <p class="course_not_available_text">Временно недоступен</p>

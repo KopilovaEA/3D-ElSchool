@@ -9,7 +9,7 @@
       </router-link>
       <div class="header_menu" v-show="windowWidth > 630">
         <router-link to="/courses">
-          <span>Курс</span>
+          <span>Курсы</span>
         </router-link>
         <router-link to="/format">
           <span>Формат</span>

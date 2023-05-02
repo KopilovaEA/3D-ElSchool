@@ -10,13 +10,11 @@
         width="82"
         height="82"
       />
-      <p>
-        Рекомендуем посмотреть видео: Все Возможности Blender ( Nooblender )
-      </p>
+      <p>Рекомендуем посмотреть видео: 3D как и с чего начать? ( YuriyFyr )</p>
       <div>
         <iframe
           class="video"
-          src="https://www.youtube.com/embed/uTke59Lj_-s"
+          src="https://www.youtube.com/embed/Z7A4dstkrH8"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -33,7 +31,7 @@
     />
     <p>
       Рекомендуем подписаться на наш Telegram канал, чтобы быть всегда вкурсе
-      наших новостей и поддерживать общение с нами:
+      наших новостей и поддерживать общение:
       <a href="https://web.telegram.org/k/" class="global" target="_blank"
         >3D ElSchool</a
       >
@@ -137,7 +135,7 @@ a:hover {
 .video {
   display: flex;
   width: 100%;
-  height: 750px;
+  height: 650px;
   top: 20px;
   object-fit: cover;
 }
