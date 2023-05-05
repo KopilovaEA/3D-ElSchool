@@ -3,8 +3,8 @@
     <div class="home_bg_image">
       <div class="home_image_rect">
         <p style="font-size: 32px">Ведущая в России Онлайн школа</p>
-        <p style="font-size: 26px">
-          Электронные курсы обучения 3D-моделированию
+        <p class="text">
+          Электронный курс по обучению 3D-моделированию в Blender
         </p>
       </div>
     </div>
@@ -40,8 +40,8 @@ export default {};
 
 .home_image_rect {
   background-color: #bca0eb;
-  width: 360px;
-  height: 60%;
+  width: 390px;
+  height: 50%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -51,5 +51,16 @@ export default {};
 
 p {
   text-align: left;
+}
+.text {
+  font-size: 26px;
+}
+@media (max-width: 652px) {
+  .text {
+    font-size: 28px;
+  }
+  .home_image_rect {
+    height: 70%;
+  }
 }
 </style>

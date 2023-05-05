@@ -2,27 +2,25 @@
   <div class="blog">
     <TopBanner />
     <h1>БЛОГ</h1>
-    <div class="icon">
-      <img
-        class="circle"
-        src="@/assets/Ellipse.png"
-        alt="Circle"
-        width="82"
-        height="82"
-      />
-      <p>
-        Рекомендуем посмотреть видео: Что такое 3D моделирование? ( Zhukov3D )
-      </p>
-      <div>
-        <iframe
-          class="video"
-          src="https://www.youtube.com/embed/-m8zejlAzb4"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
+    <img
+      class="circle"
+      src="@/assets/Ellipse.png"
+      alt="Circle"
+      width="82"
+      height="82"
+    />
+    <p>
+      Рекомендуем посмотреть видео: Что такое 3D моделирование? ( Zhukov3D )
+    </p>
+    <div>
+      <iframe
+        class="video"
+        src="https://www.youtube.com/embed/-m8zejlAzb4"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
     </div>
     <img
       class="circle"

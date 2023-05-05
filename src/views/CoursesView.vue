@@ -8,7 +8,9 @@
         <p class="courses_description">База для новичков в Blender</p>
       </div>
       <div class="course_availables">
-        <p class="course_available_texts">Пройти курс</p>
+        <router-link to="/coursefree">
+          <p class="course_available_texts">Пройти курс</p>
+        </router-link>
       </div>
     </div>
     <div class="vip_course">
@@ -149,9 +151,9 @@ p {
   vertical-align: middle;
 }
 .course_availables {
-  background-color: rgba(207, 108, 206, 0.75);
-  width: 30%;
-  height: 90px;
+  background-color: rgba(207, 108, 205, 0.599);
+  width: 11%;
+  height: 80px;
   position: absolute;
   right: 30px;
   margin-bottom: 20px;
@@ -159,6 +161,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 50px;
 }
 
 .course_available_texts {
@@ -175,5 +178,22 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@media screen and (max-width: 1200px) {
+  .course_availables {
+    padding-right: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .vip_course__image {
+    right: 0px;
+    background-size: 70px;
+    height: 100px;
+    width: 55px;
+  }
+  .course_availables {
+    padding-right: 60px;
+  }
 }
 </style>

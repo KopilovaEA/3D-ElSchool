@@ -42,7 +42,7 @@
           >
             <span>Войти</span>
           </router-link>
-          <router-link @click="isOpenMenu = !isOpenMenu" to="/courses" v-else>
+          <router-link @click="isOpenMenu = !isOpenMenu" to="/profile" v-else>
             <span>{{ $store.state.name }}</span>
           </router-link>
         </div>

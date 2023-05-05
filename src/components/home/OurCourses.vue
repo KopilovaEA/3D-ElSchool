@@ -67,12 +67,12 @@ h1 {
   z-index: 1;
 }
 .free_course > img:hover {
-  outline: 4px dashed #de6690ac; /* Ширина, вид и цвет рамки */
-  outline-offset: -10px; /* Ширина, вид и цвет рамки */
+  outline: 4px dashed #de6690ac;
+  outline-offset: -10px;
 }
 .vip_course > img:hover {
-  outline: 4px dashed #d771ffc5; /* Ширина, вид и цвет рамки */
-  outline-offset: -10px; /* Ширина, вид и цвет рамки */
+  outline: 4px dashed #d771ffc5;
+  outline-offset: -10px;
 }
 .vip_course {
   z-index: 1;

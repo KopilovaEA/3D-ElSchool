@@ -60,6 +60,7 @@ export default {};
   width: 200px;
   height: 50px;
   font-size: 20px;
+  color: black;
   background-color: #fff06a;
   border: 0;
   border-radius: 5px;

@@ -153,6 +153,9 @@ export default {};
     padding: 20px;
     margin-left: 30px;
   }
+  .prepod img {
+    margin-left: 40px;
+  }
   .free_text {
     text-align: center;
   }

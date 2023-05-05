@@ -1,5 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+const checkAuth = (to, from, next) => {
+  if (localStorage.getItem("auth")) {
+    next();
+  } else {
+    next({ name: "login" });
+  }
+};
+
 const routes = [
   {
     path: "/",
@@ -35,6 +43,18 @@ const routes = [
     path: "/registration",
     name: "registration",
     component: () => import("../views/RegisterView.vue"),
+  },
+  {
+    path: "/profile",
+    name: "profile",
+    component: () => import("../views/ProfileView.vue"),
+    beforeEnter: checkAuth,
+  },
+  {
+    path: "/coursefree",
+    name: "coursefree",
+    component: () => import("../views/CourseFreeView.vue"),
+    beforeEnter: checkAuth,
   },
 ];
 

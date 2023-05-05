@@ -26,7 +26,7 @@
       <router-link to="/login" v-if="!$store.state.id">
         <span style="font-size: 18px">Войти</span>
       </router-link>
-      <router-link to="/courses" v-else>
+      <router-link to="/profile" v-else>
         <span style="font-size: 18px">{{ $store.state.name }}</span>
       </router-link>
     </div>
