@@ -107,7 +107,7 @@ export default {
   padding: 40px;
   max-width: 400px;
   margin: auto;
-  height: calc(100vh - 50px - 80px);
+  min-height: calc(100vh - 50px - 80px);
 }
 .login-form {
   z-index: 2;

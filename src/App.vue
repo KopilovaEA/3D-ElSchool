@@ -19,10 +19,13 @@ export default {
       id: window.localStorage.getItem("auth"),
     });
 
+    console.log("@App", response.data);
+
     if (!response.data?.message) {
       this.$store.commit("setId", response.data.id);
       this.$store.commit("setName", response.data.name);
       this.$store.commit("setEmail", response.data.email);
+      this.$store.commit("setRole", response.data.role);
     }
   },
 };

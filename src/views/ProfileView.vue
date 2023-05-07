@@ -7,9 +7,15 @@
       <div class="profile_inputs">
         <div class="text">
           <p class="profile_input_label">Имя:</p>
-          <input class="profile_input" :placeholder="name" type="text" />
-          <div class="profile_edit_btn">
+          <input
+            class="profile_input"
+            v-model="inputs.name"
+            :placeholder="state.name"
+            type="text"
+          />
+          <div class="profile_edit_btn" @click="changeName">
             <svg
+              class="svg_style"
               width="22"
               height="22"
               xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +30,15 @@
         </div>
         <div class="text">
           <p class="profile_input_label">Почта:</p>
-          <input class="profile_input" :placeholder="email" type="text" />
-          <div class="profile_edit_btn">
+          <input
+            class="profile_input"
+            v-model="inputs.email"
+            :placeholder="state.email"
+            type="text"
+          />
+          <div class="profile_edit_btn" @click="changeEmail">
             <svg
+              class="svg_style"
               width="22"
               height="22"
               xmlns="http://www.w3.org/2000/svg"
@@ -43,12 +55,12 @@
           <p class="profile_input_label">Пароль:</p>
           <input
             class="profile_input"
-            placeholder=""
-            v-model="password"
+            v-model="inputs.password"
             type="password"
           />
           <div class="profile_edit_btn" @click="changePassword">
             <svg
+              class="svg_style"
               width="22"
               height="22"
               xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +75,13 @@
         </div>
       </div>
     </div>
+    <button
+      class="admin_btn"
+      @click="$router.push('/admin')"
+      v-if="$store.state.role === 'admin'"
+    >
+      Админ-панель
+    </button>
     <h2>Курсы:</h2>
     <table class="table">
       <thead>
@@ -73,14 +92,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
+        <tr v-for="course in courses" :key="course.id">
+          <td>
+            {{ course.type === "pay" ? "Платный" : "Бесплатный" }}
+          </td>
+          <td>{{ course.title }}</td>
+          <td>{{ course.description }}</td>
         </tr>
       </tbody>
     </table>
-    <button class="profile_exit_btn">Выйти</button>
+    <button class="profile_exit_btn" @click="logout">Выйти</button>
   </div>
 </template>
 
@@ -93,18 +114,60 @@ export default {
     TopBanner,
   },
   data: () => ({
-    id: null,
-    name: "",
-    email: "",
-    password: "",
+    state: {
+      id: null,
+      name: "",
+      email: "",
+    },
+    inputs: {
+      email: "",
+      name: "",
+      password: "",
+    },
+    courses: null,
   }),
   methods: {
+    logout() {
+      this.$store.commit("setId", null);
+      this.$store.commit("setName", "");
+      this.$store.commit("setEmail", "");
+      window.localStorage.removeItem("auth");
+      this.$router.push("/");
+    },
+    async changeName() {
+      const regexName = /^[А-Яа-я]+|[A-Za-z]+$/;
+      if (this.inputs.name && regexName.test(this.inputs.name)) {
+        try {
+          const response = await axios.post("http://localhost:3000/name", {
+            name: this.inputs.name,
+            id: this.state.id,
+          });
+          console.log(response.data);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
+    async changeEmail() {
+      const regexEmail = /^\w+@\w+\.[A-Za-z]+$/;
+      if (this.inputs.email && regexEmail.test(this.inputs.email)) {
+        try {
+          const response = await axios.post("http://localhost:3000/email", {
+            email: this.inputs.email,
+            id: this.state.id,
+          });
+          console.log(response.data);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    },
     async changePassword() {
-      if (this.password.length >= 6) {
+      if (this.inputs.password.length >= 6) {
         try {
           const response = await axios.post("http://localhost:3000/password", {
-            password: this.password,
-            id: this.id,
+            password: this.inputs.password,
+            id: this.state.id,
           });
           console.log(response.data);
         } catch (e) {
@@ -113,10 +176,15 @@ export default {
       }
     },
   },
-  mounted() {
-    this.name = this.$store.state.name;
-    this.email = this.$store.state.email;
-    this.id = this.$store.state.id;
+  async mounted() {
+    this.state.name = this.$store.state.name;
+    this.state.email = this.$store.state.email;
+    this.state.id = this.$store.state.id;
+
+    const response = await axios.post("http://localhost:3000/courses", {
+      user_id: this.state.id,
+    });
+    this.courses = response.data;
   },
 };
 </script>
@@ -160,6 +228,11 @@ export default {
   background: #0074a67a;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
+}
+.profile_exit_btn:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
 }
 .profile_inputs {
   display: flex;
@@ -171,10 +244,25 @@ export default {
   display: flex;
   align-items: center;
 }
+.admin_btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  background: #0074a67a;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.admin_btn:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+}
+
 .table {
   border: 1px solid #ffeded;
   table-layout: fixed;
-  width: 60%;
+  width: 80%;
   padding-bottom: 20px;
   margin: auto;
 }
@@ -193,8 +281,13 @@ export default {
   background: #e3e6ff;
 }
 .table tbody tr:nth-child(even) {
-  background: #0f4d94;
+  background: #d2d7ff;
 }
+.svg_style:hover {
+  background: #d0d0d0;
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 790px) {
   .profile_contain {
     flex-direction: column;
@@ -202,6 +295,9 @@ export default {
   }
   .table {
     width: 100%;
+  }
+  .admin_btn {
+    margin: 20px;
   }
 }
 </style>

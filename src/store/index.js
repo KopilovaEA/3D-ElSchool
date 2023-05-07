@@ -4,6 +4,7 @@ export default createStore({
   state: {
     email: "",
     name: "",
+    role: "",
     id: null,
   },
   getters: {},
@@ -16,6 +17,9 @@ export default createStore({
     },
     setId(store, id) {
       store.id = id;
+    },
+    setRole(store, role) {
+      store.role = role;
     },
   },
   actions: {},

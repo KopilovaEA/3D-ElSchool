@@ -7,10 +7,8 @@
         <p class="courses_title">Бесплатный курс</p>
         <p class="courses_description">База для новичков в Blender</p>
       </div>
-      <div class="course_availables">
-        <router-link to="/coursefree">
-          <p class="course_available_texts">Пройти курс</p>
-        </router-link>
+      <div class="course_availables" @click="goToFreeCourse">
+        <p class="course_available_texts">Пройти курс</p>
       </div>
     </div>
     <div class="vip_course">
@@ -18,8 +16,8 @@
         <p class="courses_title">VIP-курс</p>
         <p class="courses_description">Продвинутый в Blender</p>
       </div>
-      <div class="course_not_available">
-        <p class="course_not_available_text">Временно недоступен</p>
+      <div class="course_not_available" @click="goToPayCourse">
+        <p class="course_not_available_text">Пройти курс</p>
       </div>
       <div class="vip_course__image"><p></p></div>
     </div>
@@ -30,11 +28,53 @@
 <script>
 import TopBanner from "@/components/home/TopBanner.vue";
 import StudyBunner from "@/components/header/StudyBunner.vue";
+import axios from "axios";
 export default {
   name: "CoursesView",
   components: {
     TopBanner,
     StudyBunner,
+  },
+  methods: {
+    async goToFreeCourse() {
+      if (window.localStorage.getItem("auth")) {
+        try {
+          const response = await axios.post(
+            "http://localhost:3000/add_course_to_user",
+            {
+              course_id: 3,
+              user_id: this.$store.state.id,
+            }
+          );
+          console.log(response.data);
+          this.$router.push("/course_free");
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        this.$router.push("/login");
+      }
+    },
+    async goToPayCourse() {
+      if (localStorage.getItem("auth")) {
+        try {
+          const response = await axios.post("http://localhost:3000/courses", {
+            user_id: localStorage.getItem("auth"),
+          });
+          for (let course of response.data) {
+            if (course.id === 4) {
+              this.$router.push("/course_vip");
+              return;
+            }
+          }
+          this.$router.push("/course_vip_pay");
+        } catch (e) {
+          console.log(e);
+        }
+      } else {
+        this.$router.push("/login");
+      }
+    },
   },
 };
 </script>
@@ -134,25 +174,29 @@ p {
 .course_not_available {
   background-color: rgba(207, 108, 206, 0.75);
   width: 400px;
-  height: 120px;
+  height: 100px;
   margin-bottom: 20px;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   z-index: 0.3;
+  cursor: pointer;
 }
-
+.course_not_available:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+}
 .course_not_available_text {
   color: #000000;
-  font-size: 30px;
+  font-size: 25px;
   width: 100%;
   text-align: center;
   vertical-align: middle;
 }
 .course_availables {
-  background-color: rgba(207, 108, 205, 0.599);
-  width: 11%;
+  background-color: rgba(207, 108, 205, 0.541);
+  width: 200px;
   height: 80px;
   position: absolute;
   right: 30px;
@@ -161,9 +205,12 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 50px;
+  cursor: pointer;
 }
-
+.course_availables:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+}
 .course_available_texts {
   color: #000000;
   font-size: 20px;
@@ -179,11 +226,6 @@ p {
   background-position: center;
   background-repeat: no-repeat;
 }
-@media screen and (max-width: 1200px) {
-  .course_availables {
-    padding-right: 40px;
-  }
-}
 
 @media screen and (max-width: 500px) {
   .vip_course__image {
@@ -192,8 +234,12 @@ p {
     height: 100px;
     width: 55px;
   }
-  .course_availables {
-    padding-right: 60px;
+  .course_not_available_text {
+    color: #000000;
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
   }
 }
 </style>

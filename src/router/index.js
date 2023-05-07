@@ -1,8 +1,49 @@
 import { createRouter, createWebHistory } from "vue-router";
+import axios from "axios";
 
 const checkAuth = (to, from, next) => {
   if (localStorage.getItem("auth")) {
     next();
+  } else {
+    next({ name: "login" });
+  }
+};
+
+const checkAuthAndFreeCourse = async (to, from, next) => {
+  if (localStorage.getItem("auth")) {
+    const response = await axios.post("http://localhost:3000/course_access", {
+      course_id: 3,
+      user_id: localStorage.getItem("auth"),
+    });
+    if (response.data?.id) next();
+    else next({ name: "courses" });
+  } else {
+    next({ name: "login" });
+  }
+};
+
+const checkAuthAndPayCourse = async (to, from, next) => {
+  if (localStorage.getItem("auth")) {
+    const response = await axios.post("http://localhost:3000/course_access", {
+      course_id: 4,
+      user_id: localStorage.getItem("auth"),
+    });
+    console.log(response.data);
+    if (response.data?.id) next();
+    else next({ name: "courses" });
+  } else {
+    next({ name: "login" });
+  }
+};
+
+const checkAdmin = async (to, from, next) => {
+  if (localStorage.getItem("auth")) {
+    const response = await axios.post("http://localhost:3000/admin", {
+      user_id: localStorage.getItem("auth"),
+    });
+    console.log(response.data);
+    if (response.data?.role === "admin") next();
+    else next({ name: "home" });
   } else {
     next({ name: "login" });
   }
@@ -51,10 +92,33 @@ const routes = [
     beforeEnter: checkAuth,
   },
   {
-    path: "/coursefree",
-    name: "coursefree",
+    path: "/course_free",
+    name: "course_free",
     component: () => import("../views/CourseFreeView.vue"),
+    beforeEnter: checkAuthAndFreeCourse,
+  },
+  {
+    path: "/course_vip_pay",
+    name: "course_vip_pay",
+    component: () => import("../views/CourseVipPayView.vue"),
     beforeEnter: checkAuth,
+  },
+  {
+    path: "/course_vip",
+    name: "course_vip",
+    component: () => import("../views/CourseVipView.vue"),
+    beforeEnter: checkAuthAndPayCourse,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: () => import("../views/AdminView.vue"),
+    beforeEnter: checkAdmin,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "page_not_found",
+    component: () => import("../views/PageNotFound.vue"),
   },
 ];
 

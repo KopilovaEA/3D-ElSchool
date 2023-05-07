@@ -1,5 +1,5 @@
 <template>
-  <div class="blog">
+  <div class="free">
     <TopBanner />
     <h1>БАЗА ДЛЯ НОВИЧКОВ</h1>
     <p class="style_text">
@@ -17,8 +17,8 @@
       height="82"
     />
     <p>
-      Каждую пятницу в 12:00 по москвскому времени состоятся созвоны в zoom с
-      экспертами, для обсуждения интересующих вопросов:
+      Каждую пятницу в 12:00 по московскому времени состоятся созвоны в zoom с
+      экспертами для обсуждения интересующих вопросов связанных с курсом:
       <a
         class="global"
         target="_blank"
@@ -141,7 +141,7 @@
 <script>
 import TopBanner from "@/components/home/TopBanner.vue";
 export default {
-  name: "BlogView",
+  name: "CourseFreeView",
   components: { TopBanner },
 };
 </script>
