@@ -19,9 +19,6 @@
             ><p class="courses_description">Продвинутый</p></router-link
           >
         </div>
-        <div class="course_not_available">
-          <p class="course_not_available_text">Временно недоступен</p>
-        </div>
       </div>
     </div>
   </div>
