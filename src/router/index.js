@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { API } from "@/http/index.js";
 import axios from "axios";
 
 const checkAuth = (to, from, next) => {
@@ -11,7 +12,7 @@ const checkAuth = (to, from, next) => {
 
 const checkAuthAndFreeCourse = async (to, from, next) => {
   if (localStorage.getItem("auth")) {
-    const response = await axios.post("http://localhost:3000/course_access", {
+    const response = await axios.post(API + "/course_access", {
       course_id: 3,
       user_id: localStorage.getItem("auth"),
     });
@@ -24,7 +25,7 @@ const checkAuthAndFreeCourse = async (to, from, next) => {
 
 const checkAuthAndPayCourse = async (to, from, next) => {
   if (localStorage.getItem("auth")) {
-    const response = await axios.post("http://localhost:3000/course_access", {
+    const response = await axios.post(API + "/course_access", {
       course_id: 4,
       user_id: localStorage.getItem("auth"),
     });
@@ -38,7 +39,7 @@ const checkAuthAndPayCourse = async (to, from, next) => {
 
 const checkAdmin = async (to, from, next) => {
   if (localStorage.getItem("auth")) {
-    const response = await axios.post("http://localhost:3000/admin", {
+    const response = await axios.post(API + "/admin", {
       user_id: localStorage.getItem("auth"),
     });
     console.log(response.data);

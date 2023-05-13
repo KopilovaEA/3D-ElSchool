@@ -11,11 +11,12 @@
 <script>
 import HeaderLayout from "@/components/header/HeaderLayout.vue";
 import FooterLayout from "@/components/footer/FooterLayout.vue";
+import { API } from "@/http/index.js";
 import axios from "axios";
 export default {
   components: { HeaderLayout, FooterLayout },
   async mounted() {
-    const response = await axios.post("http://localhost:3000/user", {
+    const response = await axios.post(API + "/user", {
       id: window.localStorage.getItem("auth"),
     });
 

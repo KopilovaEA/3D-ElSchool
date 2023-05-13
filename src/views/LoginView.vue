@@ -26,6 +26,7 @@
 
 <script>
 import axios from "axios";
+import { API } from "@/http/index.js";
 export default {
   data: () => ({
     login: "",
@@ -73,7 +74,7 @@ export default {
       }
 
       try {
-        const response = await axios.post("http://localhost:3000/login", {
+        const response = await axios.post(API + "/login", {
           email: this.login,
           password: this.password,
         });

@@ -28,6 +28,7 @@
 <script>
 import TopBanner from "@/components/home/TopBanner.vue";
 import StudyBunner from "@/components/header/StudyBunner.vue";
+import { API } from "@/http/index.js";
 import axios from "axios";
 export default {
   name: "CoursesView",
@@ -39,13 +40,10 @@ export default {
     async goToFreeCourse() {
       if (window.localStorage.getItem("auth")) {
         try {
-          const response = await axios.post(
-            "http://localhost:3000/add_course_to_user",
-            {
-              course_id: 3,
-              user_id: this.$store.state.id,
-            }
-          );
+          const response = await axios.post(API + "/add_course_to_user", {
+            course_id: 3,
+            user_id: this.$store.state.id,
+          });
           console.log(response.data);
           this.$router.push("/course_free");
         } catch (e) {
@@ -58,7 +56,7 @@ export default {
     async goToPayCourse() {
       if (localStorage.getItem("auth")) {
         try {
-          const response = await axios.post("http://localhost:3000/courses", {
+          const response = await axios.post(API + "/courses", {
             user_id: localStorage.getItem("auth"),
           });
           for (let course of response.data) {

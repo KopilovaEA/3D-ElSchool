@@ -108,6 +108,7 @@
 <script>
 import TopBanner from "@/components/home/TopBanner.vue";
 import axios from "axios";
+import { API } from "@/http/index.js";
 export default {
   name: "CoursesView",
   components: {
@@ -138,7 +139,7 @@ export default {
       const regexName = /^[А-Яа-я]+|[A-Za-z]+$/;
       if (this.inputs.name && regexName.test(this.inputs.name)) {
         try {
-          const response = await axios.post("http://localhost:3000/name", {
+          const response = await axios.post(API + "/name", {
             name: this.inputs.name,
             id: this.state.id,
           });
@@ -152,7 +153,7 @@ export default {
       const regexEmail = /^\w+@\w+\.[A-Za-z]+$/;
       if (this.inputs.email && regexEmail.test(this.inputs.email)) {
         try {
-          const response = await axios.post("http://localhost:3000/email", {
+          const response = await axios.post(API + "/email", {
             email: this.inputs.email,
             id: this.state.id,
           });
@@ -165,7 +166,7 @@ export default {
     async changePassword() {
       if (this.inputs.password.length >= 6) {
         try {
-          const response = await axios.post("http://localhost:3000/password", {
+          const response = await axios.post(API + "/password", {
             password: this.inputs.password,
             id: this.state.id,
           });
@@ -181,7 +182,7 @@ export default {
     this.state.email = this.$store.state.email;
     this.state.id = this.$store.state.id;
 
-    const response = await axios.post("http://localhost:3000/courses", {
+    const response = await axios.post(API + "/courses", {
       user_id: this.state.id,
     });
     this.courses = response.data;

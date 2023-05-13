@@ -40,6 +40,7 @@
 
 <script>
 import axios from "axios";
+import { API } from "@/http/index.js";
 export default {
   data: () => ({
     email: "",
@@ -110,7 +111,7 @@ export default {
       }
 
       try {
-        const response = await axios.put("http://localhost:3000/register", {
+        const response = await axios.put(API + "/register", {
           email: this.email,
           password: this.password,
           name: this.name,
