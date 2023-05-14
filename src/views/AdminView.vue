@@ -131,14 +131,6 @@ export default {
         console.log(response.data);
         this.users = response.data;
         this.filtered_users = this.users;
-        for (let i = 0; i < 100; i++) {
-          this.filtered_users.push({
-            id: 0,
-            name: "test",
-            email: "test@test.com",
-            title: "TEST",
-          });
-        }
       } catch (e) {
         console.log(e);
       }
