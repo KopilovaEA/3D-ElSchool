@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunk_3dcourses"]=self["webpackChunk_3dcourses"]||[]).push([[191],{3191:function(n,c,e){e.r(c),e.d(c,{default:function(){return i}});var s=e(3396);const u=n=>((0,s.dD)("data-v-b9cf24c6"),n=n(),(0,s.Cn)(),n),r={class:"page_not_found"},t=u((()=>(0,s._)("h1",null,"Такой страницы не найдено!",-1))),a=[t];function d(n,c){return(0,s.wg)(),(0,s.iD)("div",r,a)}var o=e(89);const f={},_=(0,o.Z)(f,[["render",d],["__scopeId","data-v-b9cf24c6"]]);var i=_}}]);
+//# sourceMappingURL=191.9086fe60.js.map
