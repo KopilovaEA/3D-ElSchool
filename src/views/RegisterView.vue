@@ -111,7 +111,7 @@ export default {
       }
 
       try {
-        const response = await axios.put(API + "/register", {
+        const response = await axios.post(API + "/register", {
           email: this.email,
           password: this.password,
           name: this.name,
