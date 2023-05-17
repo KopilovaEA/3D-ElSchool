@@ -150,7 +150,7 @@ export default {
       }
     },
     async changeEmail() {
-      const regexEmail = /^\w+@\w+\.[A-Za-z]+$/;
+      const regexEmail = /^(\w+|\w+(.|_)*\w+)@\w+\.[A-Za-z]+$/;
       if (this.inputs.email && regexEmail.test(this.inputs.email)) {
         try {
           const response = await axios.post(API + "/email", {

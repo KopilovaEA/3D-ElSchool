@@ -37,7 +37,7 @@ export default {
   }),
   methods: {
     loginValidate() {
-      const regex = /^\w+@\w+\.\w+$/;
+      const regex = /^(\w+|\w+(.|_)*\w+)@\w+\.[A-Za-z]+$/;
 
       if (!this.login && !this.password) {
         this.isLoginError = true;

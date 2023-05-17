@@ -55,7 +55,7 @@ export default {
   }),
   methods: {
     registerValidate() {
-      const regexEmail = /^\w+@\w+\.[A-Za-z]+$/;
+      const regexEmail = /^(\w+|\w+(.|_)*\w+)@\w+\.[A-Za-z]+$/;
       const regexName = /^[А-Яа-я]+|[A-Za-z]+$/;
 
       if (!this.email && !this.password) {
