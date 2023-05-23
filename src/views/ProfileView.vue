@@ -175,15 +175,17 @@ export default {
     },
   },
   async mounted() {
-    this.state.name = this.$store.state.name;
-    this.state.email = this.$store.state.email;
-    this.state.id = this.$store.state.id;
-    this.isAdmin = this.$store.state.role === "admin" ? true : false;
+    while (!this.state.id) {
+      this.state.name = this.$store.state.name;
+      this.state.email = this.$store.state.email;
+      this.state.id = this.$store.state.id;
+      this.isAdmin = this.$store.state.role === "admin" ? true : false;
 
-    const response = await axios.post(API + "/courses", {
-      user_id: this.state.id,
-    });
-    this.courses = response.data;
+      const response = await axios.post(API + "/courses", {
+        user_id: this.state.id,
+      });
+      this.courses = response.data;
+    }
   },
 };
 </script>
