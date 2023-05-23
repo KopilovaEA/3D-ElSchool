@@ -175,17 +175,28 @@ export default {
     },
   },
   async mounted() {
-    while (!this.state.id) {
-      this.state.name = this.$store.state.name;
-      this.state.email = this.$store.state.email;
-      this.state.id = this.$store.state.id;
-      this.isAdmin = this.$store.state.role === "admin" ? true : false;
+    let response = await axios.post(API + "/user", {
+      id: window.localStorage.getItem("auth"),
+    });
 
-      const response = await axios.post(API + "/courses", {
-        user_id: this.state.id,
-      });
-      this.courses = response.data;
+    console.log("@Profile", response.data);
+
+    if (!response.data?.message) {
+      this.$store.commit("setId", response.data.id);
+      this.$store.commit("setName", response.data.name);
+      this.$store.commit("setEmail", response.data.email);
+      this.$store.commit("setRole", response.data.role);
     }
+
+    this.state.name = this.$store.state.name;
+    this.state.email = this.$store.state.email;
+    this.state.id = this.$store.state.id;
+    this.isAdmin = this.$store.state.role === "admin" ? true : false;
+
+    response = await axios.post(API + "/courses", {
+      user_id: this.state.id,
+    });
+    this.courses = response.data;
   },
 };
 </script>
