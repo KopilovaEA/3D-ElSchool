@@ -75,11 +75,7 @@
         </div>
       </div>
     </div>
-    <button
-      class="admin_btn"
-      @click="$router.push('/admin')"
-      v-if="$store.state.role === 'admin'"
-    >
+    <button class="admin_btn" @click="$router.push('/admin')" v-if="isAdmin">
       Админ-панель
     </button>
     <h2>Курсы:</h2>
@@ -126,6 +122,7 @@ export default {
       password: "",
     },
     courses: null,
+    isAdmin: false,
   }),
   methods: {
     logout() {
@@ -181,6 +178,7 @@ export default {
     this.state.name = this.$store.state.name;
     this.state.email = this.$store.state.email;
     this.state.id = this.$store.state.id;
+    this.isAdmin = this.$store.state.role === "admin" ? true : false;
 
     const response = await axios.post(API + "/courses", {
       user_id: this.state.id,
